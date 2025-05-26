@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const sort = document.getElementById("sort");
   let sortValue = "title.asc"
   const form = document.getElementsByTagName("form")[0];
+  const date = document.getElementById("date")
+  let created_at = new Date().toISOString().split('T')[0];
   const sortAction = function (e) {
     sortValue = sort.value;
     if (sortValue === undefined) {
@@ -82,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const subtitle = document.getElementById("subtitle").value;
     const author = document.getElementById("author").value;
     const content = document.getElementById("content").value;
-    let created_at = document.getElementById("date").value;
+    created_at = date.value;
     created_at = new Date(created_at).toISOString();
     createNewArticle(title, subtitle, author, content, created_at);
     form.reset();
