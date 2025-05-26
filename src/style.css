@@ -101,3 +101,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@theme {
+  --color-primary: #6A3D2E;
+}
