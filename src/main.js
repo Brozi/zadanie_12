@@ -24,7 +24,7 @@ async function renderArticles() {
     const article = data[i]
     html += `
       <div class="article"> +
-      <h2> + article.title + </h2> +
+      <h2> + {article.title} + </h2> +
       <h4> + article.subtitle + </h4> +
       <p><strong>Autor:</strong>  + article.author + </p> +
       <p><strong>Data:</strong>  + new Date(article.created_at).toLocaleDateString() + </p> +
