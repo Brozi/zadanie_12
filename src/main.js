@@ -1,16 +1,18 @@
 import './style.css'
 import { format } from "date-fns";
 const app = document.querySelector("#app");
+const sort = document.getElementById("sort");
 const form = document.getElementsByTagName("form")[0];
-const sort = document.getElementById("sort")
 const sortAction = function (e) {
   const sortValue = sort.value;
+  renderArticles(sortValue);
   return sortValue;
+
 }
-async function fetchArticles() {
+async function fetchArticles(sortValue) {
 
   try {
-    const response = await fetch('https://vexfoiiqufvkzdavwwkh.supabase.co/rest/v1/article&order=${sortValue}', {
+    const response = await fetch(`https://vexfoiiqufvkzdavwwkh.supabase.co/rest/v1/article?order=${sortValue}`, {
       headers: {
         apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZleGZvaWlxdWZ2a3pkYXZ3d2toIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzY1NTIxOCwiZXhwIjoyMDYzMjMxMjE4fQ.HRZX_zqR3YXrhWnqNC4BLjS8948BsOG90Xn8Cwd2K1w',
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZleGZvaWlxdWZ2a3pkYXZ3d2toIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzY1NTIxOCwiZXhwIjoyMDYzMjMxMjE4fQ.HRZX_zqR3YXrhWnqNC4BLjS8948BsOG90Xn8Cwd2K1w',
@@ -25,8 +27,8 @@ async function fetchArticles() {
     console.error(error);
   }
 }
-async function renderArticles() {
-  const data = await fetchArticles();
+async function renderArticles(data, sortValue) {
+  const data = await fetchArticles(sortValue);
   let html = '';
   for (let i = 0; i < data.length; i++) {
     const article = data[i];
