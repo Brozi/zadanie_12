@@ -23,9 +23,7 @@ async function renderArticles(data) {
     const article = data[i]
     html = +
       '<div>' +
-      article.title + article.subtitle + article.author + article.created_at + article.content
-
-
+      '<p>' + article.title + '</p>'
       + '</div>'
   }
 }
