@@ -1,4 +1,5 @@
 import './style.css'
+import { format } from "date-fns";
 const app = document.querySelector("#app");
 async function fetchArticles() {
   try {
@@ -28,7 +29,7 @@ async function renderArticles() {
   } '</h2>' +
     '<h4>' + article.subtitle + '</h4>' +
     '<p><strong>Autor:</strong> ' + article.author + '</p>' +
-    '<p><strong>Data:</strong> ' + new Date(article.created_at).toLocaleDateString() + '</p>' +
+    '<p><strong>Data:</strong> ' + format(article.created_at, 'DD-MM-YYYY') + '</p>' +
     '<p>' + article.content + '</p>' +
     '<hr>' +
     '</div>';
