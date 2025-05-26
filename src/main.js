@@ -1,5 +1,5 @@
 import './style.css'
-const div = document.getElementsByTagName("div")[0]
+const app = document.querySelector("#app");
 async function fetchArticles() {
   try {
     const response = await fetch('https://vexfoiiqufvkzdavwwkh.supabase.co/rest/v1/article', {
@@ -17,23 +17,22 @@ async function fetchArticles() {
     console.error(error);
   }
 }
-async function renderArticles(data) {
+async function renderArticles() {
+  const data = await fetchArticles();
   let html = ''
   for (let i = 0; i < data.length; i++) {
     const article = data[i]
-    html +=
-      '<div class="article">' +
-      '<h2>' + article.title + '</h2>' +
-      '<h4>' + article.subtitle + '</h4>' +
-      '<p><strong>Autor:</strong> ' + article.author + '</p>' +
-      '<p><strong>Data:</strong> ' + new Date(article.created_at).toLocaleDateString() + '</p>' +
-      '<p>' + article.content + '</p>' +
-      '<hr>' +
-      '</div>';
+    html += `
+      <div class="article"> +
+      <h2> + article.title + </h2> +
+      <h4> + article.subtitle + </h4> +
+      <p><strong>Autor:</strong>  + article.author + </p> +
+      <p><strong>Data:</strong>  + new Date(article.created_at).toLocaleDateString() + </p> +
+      <p> + article.content + </p> +
+      <hr> +
+      </div>
+      `;
   }
+  app.innerHTML = html
 }
-const articleData = fetchArticles()
-renderArticles(articleData)
-document.querySelector('#app').innerHTML = `
-  
-`
+renderArticles()
