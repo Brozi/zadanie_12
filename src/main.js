@@ -22,17 +22,18 @@ async function renderArticles() {
   let html = ''
   for (let i = 0; i < data.length; i++) {
     const article = data[i]
-    html += `
-      <div class="article"> +
-      <h2> + {article.title} + </h2> +
-      <h4> + article.subtitle + </h4> +
-      <p><strong>Autor:</strong>  + article.author + </p> +
-      <p><strong>Data:</strong>  + new Date(article.created_at).toLocaleDateString() + </p> +
-      <p> + article.content + </p> +
-      <hr> +
-      </div>
-      `;
+    html +=
+      '<div class="article">' +
+      '<h2>' + article.title + '</h2>' +
+      '<h4>' + article.subtitle + '</h4>' +
+      '<p><strong>Autor:</strong> ' + article.author + '</p>' +
+      '<p><strong>Data:</strong> ' + new Date(article.created_at).toLocaleDateString() + '</p>' +
+      '<p>' + article.content + '</p>' +
+      '<hr>' +
+      '</div>';
   }
   app.innerHTML = html
 }
 renderArticles()
+
+  `
