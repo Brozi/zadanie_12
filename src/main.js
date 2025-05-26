@@ -2,9 +2,10 @@ import './style.css'
 import { format } from "date-fns";
 const app = document.querySelector("#app");
 const sort = document.getElementById("sort");
+let sortValue = 'title.asc'
 const form = document.getElementsByTagName("form")[0];
 const sortAction = function (e) {
-  const sortValue = sort.value;
+  sortValue = sort.value;
   renderArticles(sortValue);
   return sortValue;
 
