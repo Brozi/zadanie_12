@@ -40,7 +40,7 @@ async function renderArticles() {
 
 renderArticles();
 
-async function createNewArticle(title, subtitle, author, content) {
+async function createNewArticle(title, subtitle, author, content, created_at) {
   try {
     const response = await fetch('https://vexfoiiqufvkzdavwwkh.supabase.co/rest/v1/article', {
       method: 'POST',
@@ -49,9 +49,11 @@ async function createNewArticle(title, subtitle, author, content) {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZleGZvaWlxdWZ2a3pkYXZ3d2toIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzY1NTIxOCwiZXhwIjoyMDYzMjMxMjE4fQ.HRZX_zqR3YXrhWnqNC4BLjS8948BsOG90Xn8Cwd2K1w',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ title, subtitle, author, content })
+      body: JSON.stringify({ title, subtitle, author, content, created_at })
+
     });
 
+    console.log("Poprawnie przesłano artykuł!")
     if (response.status !== 201) {
       throw new Error(`Status: ${response.status}`);
     }
@@ -68,7 +70,8 @@ const formAction = function (e) {
   const author = document.getElementById("author").value;
   const content = document.getElementById("content").value;
   const created_at = document.getElementById("date").value;
-  createNewArticle(title, subtitle, author, content)
+  created_at = new Date(created_at).toISOString()
+  createNewArticle(title, subtitle, author, content, created_at)
 
 }
 form.addEventListener('submit', formAction);
