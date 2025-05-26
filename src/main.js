@@ -69,7 +69,7 @@ const formAction = function (e) {
   const subtitle = document.getElementById("subtitle").value;
   const author = document.getElementById("author").value;
   const content = document.getElementById("content").value;
-  const created_at = document.getElementById("date").value;
+  let created_at = document.getElementById("date").value;
   created_at = new Date(created_at).toISOString()
   createNewArticle(title, subtitle, author, content, created_at)
 
