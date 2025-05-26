@@ -5,8 +5,8 @@ const sort = document.getElementById("sort");
 const form = document.getElementsByTagName("form")[0];
 const sortAction = function (e) {
   sortValue = sort.value;
+  console.log(sortValue)
   renderArticles(sortValue);
-  return sortValue;
 
 }
 async function fetchArticles(sortValue) {
