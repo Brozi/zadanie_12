@@ -3,10 +3,8 @@ import { format } from "date-fns";
 document.addEventListener("DOMContentLoaded", function () {
   const app = document.querySelector("#app");
   const sort = document.getElementById("sort");
-  let sortValue = "title.asc"
-  const form = document.getElementsByTagName("form")[0];
-  const date = document.getElementById("date")
-  let created_at = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split('T')[0];
+  let sortValue = ""
   const sortAction = function (e) {
     sortValue = sort.value;
     if (sortValue === undefined) {
@@ -84,8 +82,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const subtitle = document.getElementById("subtitle").value;
     const author = document.getElementById("author").value;
     const content = document.getElementById("content").value;
-    created_at = date.value;
+    let created_at = date.value;
+    if (created_at === undefined || created_at === '') {
+      created_at = today;
+
+    }
     created_at = new Date(created_at).toISOString();
+
     createNewArticle(title, subtitle, author, content, created_at);
     form.reset();
 
