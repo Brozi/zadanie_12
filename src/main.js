@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     app.innerHTML = html;
   }
 
-  renderArticles();
+  renderArticles(sortValue);
 
   async function createNewArticle(title, subtitle, author, content, created_at) {
     try {
