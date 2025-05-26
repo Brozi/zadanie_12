@@ -29,8 +29,7 @@ async function renderArticles(data) {
       + '</div>'
   }
 }
-
-fetchArticles()
+const data = fetchArticles()
 renderArticles(data)
 
 document.querySelector('#app').innerHTML = `
