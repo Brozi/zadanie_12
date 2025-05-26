@@ -8,7 +8,7 @@ async function fetchArticles() {
       headers: {
         apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZleGZvaWlxdWZ2a3pkYXZ3d2toIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzY1NTIxOCwiZXhwIjoyMDYzMjMxMjE4fQ.HRZX_zqR3YXrhWnqNC4BLjS8948BsOG90Xn8Cwd2K1w',
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZleGZvaWlxdWZ2a3pkYXZ3d2toIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzY1NTIxOCwiZXhwIjoyMDYzMjMxMjE4fQ.HRZX_zqR3YXrhWnqNC4BLjS8948BsOG90Xn8Cwd2K1w',
-        ContentType: 'application/json',
+        'Content-Type': 'application/json',
       },
     });
     const data = await response.json();
@@ -40,16 +40,16 @@ async function renderArticles() {
 
 renderArticles();
 
-async function createNewArticle(title, subtitle, author, content, created_at) {
+async function createNewArticle(title, subtitle, author, content) {
   try {
     const response = await fetch('https://vexfoiiqufvkzdavwwkh.supabase.co/rest/v1/article', {
       method: 'POST',
       headers: {
         apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZleGZvaWlxdWZ2a3pkYXZ3d2toIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzY1NTIxOCwiZXhwIjoyMDYzMjMxMjE4fQ.HRZX_zqR3YXrhWnqNC4BLjS8948BsOG90Xn8Cwd2K1w',
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZleGZvaWlxdWZ2a3pkYXZ3d2toIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzY1NTIxOCwiZXhwIjoyMDYzMjMxMjE4fQ.HRZX_zqR3YXrhWnqNC4BLjS8948BsOG90Xn8Cwd2K1w',
-        ContentType: 'application/json',
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ title, subtitle, author, content, created_at })
+      body: JSON.stringify({ title, subtitle, author, content })
     });
 
     if (response.status !== 201) {
@@ -68,7 +68,7 @@ const formAction = function (e) {
   const author = document.getElementById("author").value;
   const content = document.getElementById("content").value;
   const created_at = document.getElementById("date").value;
-  createNewArticle(title, subtitle, author, content, created_at)
+  createNewArticle(title, subtitle, author, content)
 
 }
 form.addEventListener('submit', formAction);
