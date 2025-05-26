@@ -21,6 +21,23 @@
 <body>
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
+  <form method="post">
+    <label for="title">Tytuł
+      <input type="text" id="title" placeholder="np. Tytuł" required>
+    </label>
+    <p><label for="subtitle">Podtytuł
+        <input type="text" id="subtitle" placeholder="np. Podtytuł" required>
+      </label></p>
+    <p><label for="author">Autor
+        <input type="text" id="author" placeholder="np. Janusz Nosacz">
+      </label></p>
+    <p><label for="content">Treść
+        <textarea id="content" rows="4" cols="20" placeholder="Costam"></textarea>
+      </label></p>
+    <p><label for="date">Data utworzenia
+        <input type="date" id="date">
+      </label></p>
+
 </body>
 
 </html>
