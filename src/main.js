@@ -35,5 +35,3 @@ async function renderArticles() {
   app.innerHTML = html
 }
 renderArticles()
-
-  `
