@@ -21,7 +21,7 @@ fetchArticles()
 
 document.querySelector('#app').innerHTML = `
   <div>
-    Article
+    Article{data}
 
 
   </div>
