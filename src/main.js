@@ -15,10 +15,12 @@ async function fetchArticles() {
   }
 }
 
+fetchArticles()
 
 document.querySelector('#app').innerHTML = `
   <div>
     Article
+
 
   </div>
 `
