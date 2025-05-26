@@ -18,8 +18,8 @@ async function fetchArticles() {
   }
 }
 async function renderArticles(data) {
-  const html = ''
-  for (const i = 0; i < data.length; i++) {
+  let html = ''
+  for (let i = 0; i < data.length; i++) {
     const article = data[i]
     html +=
       '<div class="article">' +
@@ -31,9 +31,9 @@ async function renderArticles(data) {
       '<hr>' +
       '</div>';
   }
-  const data = fetchArticles()
-  renderArticles(data)
 }
+const articleData = fetchArticles()
+renderArticles(articleData)
 document.querySelector('#app').innerHTML = `
   
 `
