@@ -1,5 +1,5 @@
 import './style.css'
-
+const div = document.getElementsByTagName("div")[0]
 async function fetchArticles() {
   try {
     const response = await fetch('https://vexfoiiqufvkzdavwwkh.supabase.co/rest/v1/article', {
@@ -33,7 +33,7 @@ async function renderArticles(data) {
   }
   const data = fetchArticles()
   renderArticles(data)
-
-  document.querySelector('#app').innerHTML = `
+}
+document.querySelector('#app').innerHTML = `
   
 `
