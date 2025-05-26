@@ -19,6 +19,12 @@
 </head>
 
 <body>
+  <p><select name="sort" id="sort">
+      <option value="created_at.asc">Po dacie rosnąco</option>
+      <option value="created_at.desc">Po dacie malejąco</option>
+      <option value="title.asc">Po nazwie alfabetycznie</option>
+    </select>
+  </p>
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
   <form method="post">
@@ -37,7 +43,9 @@
     <p><label for="date">Data utworzenia
         <input type="date" id="date">
       </label></p>
-    <button type="submit" id="sub">Zatwierdź</button>
+    <p>
+      <button type="submit" id="sub">Zatwierdź</button>
+    </p>
   </form>
 
 </body>
