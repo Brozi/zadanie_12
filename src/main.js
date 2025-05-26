@@ -12,17 +12,27 @@ async function fetchArticles() {
     const data = await response.json();
     console.log(data);
     return data;
+
   } catch (error) {
     console.error(error);
   }
 }
+async function renderArticles(data) {
+  const html = ''
+  for (const i = 0; i < data.length; i++) {
+    const article = data[i]
+    html = +
+      '<div>' +
+      article.title + article.subtitle + article.author + article.created_at + article.content
+
+
+      + '</div>'
+  }
+}
 
 fetchArticles()
+renderArticles(data)
 
 document.querySelector('#app').innerHTML = `
-  <div>
-    Article{data}
-
-
-  </div>
+  
 `
