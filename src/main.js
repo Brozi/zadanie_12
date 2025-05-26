@@ -29,7 +29,7 @@ async function renderArticles() {
       '</h2>' +
       '<h4>' + article.subtitle + '</h4>' +
       '<p><strong>Autor:</strong> ' + article.author + '</p>' +
-      '<p><strong>Data:</strong> ' + format(article.created_at, 'DD-MM-YYYY') + '</p>' +
+      '<p><strong>Data:</strong> ' + format(article.created_at, 'dd-MM-yyyy') + '</p>' +
       '<p>' + article.content + '</p>' +
       '<hr>' +
       '</div>';
