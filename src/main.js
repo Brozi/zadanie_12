@@ -50,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
     app.innerHTML = html;
   }
 
+  renderArticles(sortValue);
+
   async function createNewArticle(title, subtitle, author, content, created_at) {
     try {
       const response = await fetch('https://vexfoiiqufvkzdavwwkh.supabase.co/rest/v1/article', {
