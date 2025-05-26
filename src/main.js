@@ -21,15 +21,19 @@ async function renderArticles(data) {
   const html = ''
   for (const i = 0; i < data.length; i++) {
     const article = data[i]
-    html = +
-      '<div>' +
-      '<p>' + article.title + '</p>'
-      + '</div>'
+    html +=
+      '<div class="article">' +
+      '<h2>' + article.title + '</h2>' +
+      '<h4>' + article.subtitle + '</h4>' +
+      '<p><strong>Autor:</strong> ' + article.author + '</p>' +
+      '<p><strong>Data:</strong> ' + new Date(article.created_at).toLocaleDateString() + '</p>' +
+      '<p>' + article.content + '</p>' +
+      '<hr>' +
+      '</div>';
   }
-}
-const data = fetchArticles()
-renderArticles(data)
+  const data = fetchArticles()
+  renderArticles(data)
 
-document.querySelector('#app').innerHTML = `
+  document.querySelector('#app').innerHTML = `
   
 `
