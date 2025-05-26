@@ -27,7 +27,7 @@ async function fetchArticles(sortValue) {
     console.error(error);
   }
 }
-async function renderArticles(data, sortValue) {
+async function renderArticles(sortValue) {
   const data = await fetchArticles(sortValue);
   let html = '';
   for (let i = 0; i < data.length; i++) {
