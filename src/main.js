@@ -20,21 +20,22 @@ async function fetchArticles() {
 }
 async function renderArticles() {
   const data = await fetchArticles();
-  let html = ''
+  let html = '';
   for (let i = 0; i < data.length; i++) {
-    const article = data[i]
+    const article = data[i];
     html +=
       '<div class="article">' +
-      '<h2>' + article.title
-  } '</h2>' +
-    '<h4>' + article.subtitle + '</h4>' +
-    '<p><strong>Autor:</strong> ' + article.author + '</p>' +
-    '<p><strong>Data:</strong> ' + format(article.created_at, 'DD-MM-YYYY') + '</p>' +
-    '<p>' + article.content + '</p>' +
-    '<hr>' +
-    '</div>';
-  app.innerHTML = html
+      '<h2>' + article.title +
+      '</h2>' +
+      '<h4>' + article.subtitle + '</h4>' +
+      '<p><strong>Autor:</strong> ' + article.author + '</p>' +
+      '<p><strong>Data:</strong> ' + format(article.created_at, 'DD-MM-YYYY') + '</p>' +
+      '<p>' + article.content + '</p>' +
+      '<hr>' +
+      '</div>';
+  }
+  app.innerHTML = html;
 }
 
 
-renderArticles()
+renderArticles();
