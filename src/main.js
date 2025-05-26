@@ -33,7 +33,8 @@ async function renderArticles() {
     '<p>' + article.content + '</p>' +
     '<hr>' +
     '</div>';
+  app.innerHTML = html
 }
-app.innerHTML = html
+
 
 renderArticles()
